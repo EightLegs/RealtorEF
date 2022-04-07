@@ -22,6 +22,11 @@ namespace RealtorEF.Data
         public DbSet<Realtor> Realtors { get; set; }
         public DbSet<Sale> Sales { get; set; }
 
+
+        public ApplicationContext()
+        {
+
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Получение строки подключения из файла appsettings.json
