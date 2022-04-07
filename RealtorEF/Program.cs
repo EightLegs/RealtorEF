@@ -13,7 +13,6 @@ namespace RealtorEF
             using (ApplicationContext db = new ApplicationContext(new DbContextOptions<ApplicationContext>()))
             {
                 int a = 5;
-                int b = 6;
             }
         }
     }

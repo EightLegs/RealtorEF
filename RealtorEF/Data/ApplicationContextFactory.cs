@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+
+using Microsoft.Extensions.Configuration;
 
 namespace RealtorEF.Data
 {
-    internal class ApplicationContextFactory
+    public class ApplicationContextFactory : IDesignTimeDbContextFactory<ApplicationContext>
     {
+        public ApplicationContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
+            //Получение строки подключения из файла appsettings.json
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
+            IConfigurationRoot config = builder.Build();
+            string connectionString = config.GetConnectionString("DefaultConnection");
+
+            optionsBuilder.UseSqlServer(connectionString);
+            return new ApplicationContext(optionsBuilder.Options);
+        }
     }
 }
