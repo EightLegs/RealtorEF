@@ -1,0 +1,48 @@
+{
+  "profiles": {
+    "RealtorEF": {
+      "commandName": "Project"
+
+      //1 
+      //"commandLineArgs": "1 Mississippi 1000 10000000"
+      //2 
+      //"commandLineArgs": "2 2"
+      //3 
+      //"commandLineArgs": "3 2"
+      //4
+      //"commandLineArgs": "4 Mississippi 2"
+      //5
+      //"commandLineArgs": "5 Schaefer"
+      //6
+      //"commandLineArgs": "6 Mississippi"
+      //7
+      //"commandLineArgs": "7 2"
+      //8
+      //"commandLineArgs": "8 2 5 Schaefer"
+      //9
+      //"commandLineArgs": "9 20.10.2017  20.10.2022 2"
+      //10
+      //"commandLineArgs": "10 Mississippi 2"
+      //11
+      //"commandLineArgs": "11 2"
+      //12
+      //"commandLineArgs": "12 2"
+      //13
+      //"commandLineArgs": "13"
+      //14
+      //"commandLineArgs": "14 Mississippi"
+      //15
+      //"commandLineArgs": "15 20 Mississippi"
+      //16
+      //"commandLineArgs": "16 Schaefer"
+      //17
+      //"commandLineArgs": "17 Schaefer"
+      //18
+      //"commandLineArgs": "18"
+      //19
+      //"commandLineArgs": "19"
+      //20
+      //"commandLineArgs": "20"
+    }
+  }
+}

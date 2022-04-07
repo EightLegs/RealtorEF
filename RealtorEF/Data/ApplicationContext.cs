@@ -9,9 +9,12 @@ namespace RealtorEF.Data
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
+
+            Database.EnsureCreated();
+/*Командны для удаления и создания новой базы данных, с заполнением посредством класса DbInitializer
             Database.EnsureDeleted();
             Database.EnsureCreated();
-            DbInitializer.Initialize(this);
+            DbInitializer.Initialize(this);*/
         }
 
         public DbSet<BuildingMaterial> BuildingMaterials { get; set; }
@@ -22,11 +25,6 @@ namespace RealtorEF.Data
         public DbSet<Realtor> Realtors { get; set; }
         public DbSet<Sale> Sales { get; set; }
 
-
-        public ApplicationContext()
-        {
-
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //Получение строки подключения из файла appsettings.json
