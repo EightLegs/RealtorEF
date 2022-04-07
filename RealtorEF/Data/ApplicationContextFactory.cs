@@ -13,7 +13,7 @@ namespace RealtorEF.Data
             //Получение строки подключения из файла appsettings.json
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
             IConfigurationRoot config = builder.Build();
-            string connectionString = config.GetConnectionString("DefaultConnection");
+            string connectionString = config.GetSection("DefaultConnection")["ConnectionString"];
 
             optionsBuilder.UseSqlServer(connectionString);
             return new ApplicationContext(optionsBuilder.Options);
