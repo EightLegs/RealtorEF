@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.Extensions.Configuration;
 
 using RealtorEF.Entities;
 
@@ -11,7 +11,7 @@ namespace RealtorEF.Data
         {
             Database.EnsureDeleted();
             Database.EnsureCreated();
-            //DbInitializer.Initialize(this);
+            DbInitializer.Initialize(this);
         }
 
         public DbSet<BuildingMaterial> BuildingMaterials { get; set; }
@@ -22,16 +22,14 @@ namespace RealtorEF.Data
         public DbSet<Realtor> Realtors { get; set; }
         public DbSet<Sale> Sales { get; set; }
 
-        public ApplicationContext()
-        {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
-            //DbInitializer.Initialize(this);
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=realtorefdb;Trusted_Connection=True;");
+            //Получение строки подключения из файла appsettings.json
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
+            IConfigurationRoot config = builder.Build();
+            string connectionString = config.GetConnectionString("DefaultConnection");
+
+            optionsBuilder.UseSqlServer(connectionString);
         }
     }
 }
