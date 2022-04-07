@@ -8,17 +8,24 @@ namespace RealtorEF
 {
     public class Program
     {
+        //Каталог Data - ApplicationContext - класс, с помощью которого осущетвляется подключение к SQL Server (строка подключения находится в файле appsettings.json
+        //Каталог Data - DBInitializer - класс, который заполняет базу данных рандомными данными для тестирования функционала лабораторной работы
+        //Каталог Entities - Классы, ставящиеся в соответствие таблицам базы данных
+        //Каталог Migrations - Снапшоты базы данных, слепки состояния базы данных, созданные с целью исправления ошибок и отката к начальному заполнению
+        //QueryFunction - статический класс реализующий функционал в соответствии с заданиями лабораторной работы
         public static void Main(String[] args)
         {
             try
             {
                 if (args.Length == 0)
                     throw new ArgumentException("<N задания> (1-12) <аргументы>\n");
-
-                switch(args[0])
+                //Запуск команды смотри в Properties/launchSettings.json
+                //В файле представлены входные данные для каждого задания (1-20)
+                //При получении аргументов команда switch передает управление соответствующему кейсу (в случае задачи Номер 11 управление будет передано case "11"
+                //В Console.WriteLine указано описание задания. Запуск функционала осуществляется посредством функций статичного класса QueryFunction
+                switch (args[0])
                 {
                     case "1":
-                        //Запуск команды смотри в Properties/launchSettings.json
                         var task1_District = args[1];
                         var task1_MinAmount = Convert.ToInt32(args[2]);
                         var task1_MaxAmount = Convert.ToInt32(args[3]);
