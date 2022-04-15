@@ -11,7 +11,7 @@ namespace RealtorEF.Data
         {
 
             Database.EnsureCreated();
-/*Командны для удаления и создания новой базы данных, с заполнением посредством класса DbInitializer
+/*//Командны для удаления и создания новой базы данных, с заполнением посредством класса DbInitializer
             Database.EnsureDeleted();
             Database.EnsureCreated();
             DbInitializer.Initialize(this);*/

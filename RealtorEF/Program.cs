@@ -18,7 +18,7 @@ namespace RealtorEF
             try
             {
                 if (args.Length == 0)
-                    throw new ArgumentException("<N задания> (1-12) <аргументы>\n");
+                    throw new ArgumentException("<N задания> (1-20) <аргументы>\n");
                 //Запуск команды смотри в Properties/launchSettings.json
                 //В файле представлены входные данные для каждого задания (1-20)
                 //При получении аргументов команда switch передает управление соответствующему кейсу (в случае задачи Номер 11 управление будет передано case "11"

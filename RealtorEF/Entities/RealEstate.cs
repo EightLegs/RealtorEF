@@ -8,7 +8,7 @@ namespace RealtorEF.Entities
     public class RealEstate
     {
         [Key]
-        public int Id { get; set; }
+        public int Id { get ; set; }
         public District District { get; set; }
         [ForeignKey("District")]
         public int DistrictId { get; set; }
